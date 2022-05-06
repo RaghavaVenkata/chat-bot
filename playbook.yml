@@ -1,0 +1,14 @@
+---
+- name: Deploying chat_bot
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Tear down existing services
+      community.docker.docker_compose:
+        project_src: .
+        state: absent
+
+    - name: Create and start services
+      community.docker.docker_compose:
+        project_src: .
+      register: output

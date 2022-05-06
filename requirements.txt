@@ -1,0 +1,5 @@
+Django==3.2.13
+psycopg2
+djangorestframework
+channels
+pymysql
