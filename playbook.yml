@@ -7,7 +7,7 @@
       docker_container:
         name: chat_bot
         image: venkata7777/chat_bot:latest
-        command: python manage.py runserver 0.0.0.0:8000
+        command: python manage.py runserver 8000
         state: present
         exposed_ports:
           - 8000
