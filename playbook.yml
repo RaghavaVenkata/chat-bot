@@ -3,12 +3,11 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: Tear down existing services
-      community.docker.docker_compose:
-        project_src: .
-        state: absent
-
-    - name: Create and start services
-      community.docker.docker_compose:
-        project_src: .
-      register: output
+    - name: Run docker image
+      docker_container:
+        name: chat_bot
+        image: venkata7777/chat_bot:latest
+        command: python manage.py runserver 0.0.0.0:8000
+        state: present
+        exposed_ports:
+          - 8000
